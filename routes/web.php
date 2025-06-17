@@ -4,6 +4,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes();
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -39,3 +40,16 @@ Route::get('free-courses',[FrontendController::class, 'freeCourses'])->name('fro
 
 Route::get('contact',[FrontendController::class, 'contact'])->name('frontend.contact');
 
+
+Auth::routes();
+// Protected routes (requires authentication)
+Route::middleware('auth')->group(function () {
+
+    // Home Dashboard
+    // Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+    // SliderController
+    Route::resource("sliders", SliderController::class);
+
+});
