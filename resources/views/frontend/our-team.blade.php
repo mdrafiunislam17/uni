@@ -195,81 +195,30 @@ Our Team Page
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
+    @foreach ($teams as $team)
 
-<div class="col">
-  <div class="card border-0 shadow-0 bg-transparent text-center h-100 position-relative">
-    <img src="{{ asset('wp-content/uploads/2024/07/Liam.jpg') }}"
-         class="card-img-top"
-         alt="...">
 
-    <!-- Name overlay -->
-    <div class="card-body card-body1">
-      <h5 class="card-title mb-1 fw-bold text-dark">Farhan Ahmed</h5>
-    </div>
+    <div class="col">
+    <div class="card border-0 shadow-0 bg-transparent text-center h-100 position-relative">
+        <img src="{{ asset('uploads/teams/' . $team->image) }}"
+            class="card-img-top"
+            alt="...">
 
-    <!-- Role below the card -->
-        <div class="role-text mt-3">
-        <p class="m-0">CEO</p>
+        <!-- Name overlay -->
+        <div class="card-body card-body1">
+        <h5 class="card-title mb-1 fw-bold text-dark">{{ $team->name }}</h5>
         </div>
 
-  </div>
-</div>
+        <!-- Role below the card -->
+            <div class="role-text mt-3">
+            <p class="m-0">{{ $team->title }}</p>
+            </div>
 
-<div class="col">
-  <div class="card border-0 shadow-0 bg-transparent text-center h-100 position-relative">
-    <img src="{{ asset('wp-content/uploads/2024/07/Liam.jpg') }}"
-         class="card-img-top"
-         alt="...">
-
-    <!-- Name overlay -->
-    <div class="card-body card-body1">
-      <h5 class="card-title mb-1 fw-bold text-dark">Liam Smith</h5>
+    </div>
     </div>
 
-    <!-- Role below the card -->
-        <div class="role-text mt-3">
-        <p class="m-0">CTO</p>
-        </div>
+    @endforeach
 
-  </div>
-</div>
-
-<div class="col">
-  <div class="card border-0 shadow-0 bg-transparent text-center h-100 position-relative">
-    <img src="{{ asset('wp-content/uploads/2024/07/Liam.jpg') }}"
-         class="card-img-top"
-         alt="...">
-
-    <!-- Name overlay -->
-    <div class="card-body card-body1">
-      <h5 class="card-title mb-1 fw-bold text-dark">Emma Johnson</h5>
-    </div>
-
-    <!-- Role below the card -->
-        <div class="role-text mt-3">
-        <p class="m-0">CFO</p>
-        </div>
-
-  </div>
-</div>
-
-<div class="col">
-  <div class="card border-0 shadow-0 bg-transparent text-center h-100 position-relative">
-    <img src="{{ asset('wp-content/uploads/2024/07/Liam.jpg') }}"
-         class="card-img-top"
-         alt="...">
-
-    <!-- Name overlay -->
-    <div class="card-body card-body1">
-      <h5 class="card-title mb-1 fw-bold text-dark">Olivia Brown</h5>
-    </div>
-
-    <!-- Role below the card -->
-        <div class="role-text mt-3">
-        <p class="m-0">CMO</p>
-        </div>
-
-  </div>
 
 </div>
 

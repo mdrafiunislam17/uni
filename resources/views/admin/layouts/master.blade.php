@@ -4,34 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin : : @yield("title")</title>
+    <link rel="shortcut icon" href="{{ asset("uploads/" . $settings["SETTING_SITE_FAVICON"]) }}" type="image/x-icon">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- ✅ SEO Tags --}}
-{{--    <meta name="title" content="@yield('meta_title', 'Default Title')">--}}
-{{--    <meta name="description" content="@yield('meta_description', 'Your page description here')">--}}
-{{--    <meta name="keywords" content="@yield('meta_keywords', 'admin, dashboard, laravel')">--}}
-{{--    <meta name="author" content="Your Company Name">--}}
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-    {{-- ✅ Robots (admin panel usually noindex) --}}
-{{--    <meta name="robots" content="noindex, nofollow">--}}
+    <!-- Custom styles for this template-->
+    <link href="{{ asset("css/sb-admin-2.min.css") }}" rel="stylesheet">
 
-    {{-- ✅ Canonical link (optional for public pages) --}}
-    {{-- <link rel="canonical" href="{{ url()->current() }}"> --}}
+    <link href="{{ asset("css/custom.css") }}" rel="stylesheet">
+    <link href="{{ asset("vendor/datatables/dataTables.bootstrap4.min.css") }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css")}}" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>@yield('title', 'Admin')</title>
-
-
-    {{-- Existing links --}}
-    <link href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700,900" rel="stylesheet">
-    <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
     @stack("styles")
 </head>
-
 
 <body id="page-top">
 
@@ -87,15 +79,13 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{ route("logout") }}">Logout</a>
+                <a class="btn btn-primary" href="">Logout</a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-@stack("scripts")
-
 <script src="{{ asset("vendor/jquery/jquery.min.js") }}"></script>
 <script src="{{ asset("vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
 
@@ -112,6 +102,6 @@
 <!-- Page level custom scripts -->
 <script src="{{ asset("js/demo/datatables-demo.js") }}"></script>
 
-
+@stack("scripts")
 </body>
 </html>

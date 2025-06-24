@@ -207,780 +207,460 @@ Home Page
                                         <div data-elementor-type="wp-page" data-elementor-id="1213" class="elementor elementor-1213">
 
                                     <!-- ✅ Slider Section Start -->
-                                <section class="slider-section">
-                                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                                        <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        </div>
-                                        <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img src="{{ asset('wp-content/uploads/2024/07/FM-Education-6.jpg') }}" class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-none d-md-block">
-                                            <span>We Work Harder</span>
-                                            <h1>Education and <br /> Consulting</h1>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quidem. Distinctio autem eligendi suscipit,
-                                                tempora explicabo illo quo quam delectus, voluptatum odit consequatur sapiente esse neque totam numquam aspernatur ex?
-                                            </p>
-                                            <a class="btn btn-primary" href="#">APPLY NOW</a>
+                            <section class="slider-section">
+                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+                                    {{-- Carousel indicators --}}
+                                    <div class="carousel-indicators">
+                                        @foreach($sliders as $index => $slider)
+                                            <button type="button" data-bs-target="#carouselExampleCaptions"
+                                                    data-bs-slide-to="{{ $index }}"
+                                                    class="{{ $index === 0 ? 'active' : '' }}"
+                                                    aria-current="{{ $index === 0 ? 'true' : 'false' }}"
+                                                    aria-label="Slide {{ $index + 1 }}"></button>
+                                        @endforeach
+                                    </div>
+
+                                    {{-- Carousel items --}}
+                                    <div class="carousel-inner">
+                                        @foreach($sliders as $index => $slider)
+                                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                                <img src="{{ asset("uploads/slider/" . $slider->image) }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    @if(!empty($slider->subtitle)) <span>{{ $slider->subtitle }}</span> @endif
+                                                    @if(!empty($slider->title)) <h1>{!! nl2br(e($slider->title)) !!}</h1> @endif
+                                                    @if(!empty($slider->description)) <p>{!! $slider->description !!}</p> @endif
+                                                    @if(!empty($slider->button_url))
+                                                        <a class="btn btn-primary" href="{{ $slider->button_url }}">
+                                                            {{ $slider->button_text ?? 'Learn More' }}
+                                                        </a>
+                                                    @endif
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="{{ asset('wp-content/uploads/2024/07/FM-Education-5.jpg') }}" class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-none d-md-block">
-                                            <h1>We Work Harder</h1>
-                                            <h1>Education and <br /> Consulting</h1>
-                                            <p>Some representative placeholder content for the second slide.</p>
-                                              <a class="btn btn-primary" href="#">APPLY NOW</a>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="{{ asset('wp-content/uploads/2024/07/FM-Education-6.jpg') }}" class="d-block w-100" alt="...">
-                                            <div class="carousel-caption d-none d-md-block">
-                                            <h1>We Work Harder</h1>
-                                            <h1>Education and <br /> Consulting</h1>
-                                            <p>Some representative placeholder content for the third slide.</p>
-                                              <a class="btn btn-primary" href="#">APPLY NOW</a>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                        @endforeach
+                                    </div>
+
+                                    {{-- Controls --}}
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                </section>
-
-
-
-
-
-
-                                <section class="elementor-section elementor-top-section elementor-element elementor-element-746f01d elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="746f01d" data-element_type="section">
-
-                                        <div class="elementor-container elementor-column-gap-default">
-
-                                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3787379 column-style-top" data-id="3787379" data-element_type="column">
-
-                                                <div class="elementor-widget-wrap elementor-element-populated">
-
-                                                    <div class="elementor-element elementor-element-108a5f2 elementor-widget elementor-widget-gva-icon-box-group" data-id="108a5f2" data-element_type="widget" data-widget_type="gva-icon-box-group.default">
-
-                                                        <div class="elementor-widget-container">
-
-                                                            <div class="gva-element-gva-icon-box-group gva-element">
-
-                                                                <div class="gsc-icon-box-group layout-carousel style-1">
-
-                                                                    <div class="init-carousel-owl owl-carousel owl-loaded owl-drag" data-items="3" data-items_lg="3" data-items_md="3" data-items_sm="2" data-items_xs="2" data-items_xx="1" data-loop="1" data-speed="800" data-auto_play="0" data-auto_play_speed="800" data-auto_play_timeout="6000" data-auto_play_hover="1" data-navigation="1" data-pagination="0" data-mouse_drag="1" data-touch_drag="1">
-
-                                                                        <div class="owl-stage-outer">
-                                                                            <div class="owl-stage" style="transform: translate3d(-2280px, 0px, 0px); transition: 0.8s; width: 3420px;"><div class="owl-item cloned" style="width: 380px;"><div class="item icon-box-item style-1 ">
-
-                                                                                <div class="item-box">
-
-                                                                                    <div class="item-box-content">
-
-                                                                                        <div class="box-icon">
-
-                                                                                            <span class="icon-inner">
-
-                                                                                                <i aria-hidden="true" class=" las la-graduation-cap"></i>
-
-                                                                                            </span>
-
-                                                                                        </div>
-
-
-                                                                                        <div class="box-content">
-
-                                                                                            <h4 class="title">SFE Courses</h4>
-
-                                                                                            <div class="desc">Level 4 to level 7 courses Funded by Student Finance</div>
-
-                                                                                        </div>
-
-                                                                                    </div>
-
-                                                                                    <a href="#" class="link-overlay">
-
-                                                                                    </a>
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                    </div>
-
-                                                                    <div class="owl-item cloned" style="width: 380px;">
-                                                                        <div class="item icon-box-item style-1 ">
-
-
-                                                                            <div class="item-box">
-
-                                                                            <div class="item-box-content">
-
-                                                                                <div class="box-icon">
-
-                                                                                    <span class="icon-inner">
-
-                                                                                        <i aria-hidden="true" class=" flaticon-education"></i>
-
-                                                                                    </span>
-
-                                                                                </div>
-
-
-                                                                                <div class="box-content">
-
-                                                                                    <h4 class="title">Level 3 Courses</h4>
-
-                                                                                    <div class="desc">Level 3 online courses for beginners</div>
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                            <a href="#" class="link-overlay"></a>
-
-
-                                                                        </div>
-
-                                                                    </div>
-
-
-                                                                </div>
-
-
-                                                                           <div class="owl-item cloned" style="width: 380px;">
-                                                                        <div class="item icon-box-item style-1 ">
-
-
-                                                                            <div class="item-box">
-
-                                                                            <div class="item-box-content">
-
-                                                                                <div class="box-icon">
-
-                                                                                    <span class="icon-inner">
-
-                                                                                          <i aria-hidden="true" class=" las la-school"></i>
-
-                                                                                    </span>
-
-                                                                                </div>
-
-
-                                                                                <div class="box-content">
-
-                                                                                    <h4 class="title">Self Funded Courses</h4>
-
-                                                                                    <div class="desc">Level 3 online courses for beginners</div>
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                            <a href="#" class="link-overlay"></a>
-
-
-                                                                        </div>
-
-                                                                    </div>
-
-
-                                                                </div>
-
-
-                                                                <div class="owl-item" style="width: 380px;">
-
-                                                                    <div class="item icon-box-item style-1 ">
-
-                                                                        <div class="item-box">
-
-                                                                            <div class="item-box-content">
-
-                                                                                <div class="box-icon">
-
-                                                                                    <span class="icon-inner">
-
-                                                                                        <i aria-hidden="true" class=" las la-graduation-cap"></i>
-
-                                                                                    </span>
-
-                                                                                </div>
-
-
-                                                                                <div class="box-content">
-
-                                                                                    <h4 class="title">SFE Courses</h4>
-
-                                                                                    <div class="desc">Level 4 to level 7 courses Funded by Student Finance</div>
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                            <a href="sfe-funded-courses/index.html" class="link-overlay">
-
-                                                                            </a>
-
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div class="owl-item" style="width: 380px;">
-
-                                                                    <div class="item icon-box-item style-1 ">
-
-                                                                        <div class="item-box">
-
-                                                                            <div class="item-box-content">
-
-                                                                                <div class="box-icon">
-
-                                                                                    <span class="icon-inner">
-
-                                                                                        <i aria-hidden="true" class=" flaticon-education"></i>
-
-                                                                                    </span>
-
-
-                                                                                </div>
-
-
-
-                                                                                <div class="box-content">
-
-
-                                                                                    <h4 class="title">Level 3 Courses</h4>
-
-
-                                                                                    <div class="desc">Level 3 online courses for beginners</div>
-
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                            <a href="self-funded/index.html" class="link-overlay">
-
-                                                                            </a>
-
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                </div>
-
-                                                                <div class="owl-item" style="width: 380px;">
-
-                                                                    <div class="item icon-box-item style-1 ">
-
-                                                                        <div class="item-box">
-
-                                                                            <div class="item-box-content">
-
-
-                                                                                <div class="box-icon">
-
-
-                                                                                    <span class="icon-inner">
-
-
-                                                                                        <i aria-hidden="true" class=" las la-school"></i>
-
-                                                                                    </span>
-
-
-                                                                                </div>
-
-
-                                                                                <div class="box-content">
-
-
-                                                                                    <h4 class="title">Self Funded Courses</h4>
-
-
-                                                                                    <div class="desc">Level 3 self funded courses independently</div>
-
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                            <a href="free-courses/index.html" class="link-overlay">
-
-                                                                            </a>
-
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div class="owl-item cloned active first" style="width: 380px;">
-
-                                                                    <div class="item icon-box-item style-1 ">
-
-
-                                                                        <div class="item-box">
-
-
-                                                                            <div class="item-box-content">
-
-
-                                                                                <div class="box-icon">
-
-
-                                                                                    <span class="icon-inner">
-
-                                                                                        <i aria-hidden="true" class=" las la-graduation-cap"></i>
-
-                                                                                    </span>
-
-
-                                                                                </div>
-
-
-
-                                                                                <div class="box-content">
-
-
-                                                                                    <h4 class="title">SFE Courses</h4>
-
-
-                                                                                    <div class="desc">Level 4 to level 7 courses Funded by Student Finance</div>
-
-
-                                                                                </div>
-
-
-                                                                            </div>
-
-
-                                                                            <a href="sfe-funded-courses/index.html" class="link-overlay">
-
-
-                                                                            </a>
-
-
-                                                                        </div>
-
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div class="owl-item cloned active center" style="width: 380px;">
-
-                                                                    <div class="item icon-box-item style-1 ">
-
-
-                                                                        <div class="item-box">
-
-
-
-                                                                            <div class="item-box-content">
-
-
-                                                                                <div class="box-icon">
-
-
-                                                                                    <span class="icon-inner">
-
-
-                                                                                        <i aria-hidden="true" class=" flaticon-education"></i>
-
-                                                                                    </span>
-
-
-                                                                                </div>
-
-
-
-                                                                                <div class="box-content">
-
-
-                                                                                    <h4 class="title">Level 3 Courses</h4>
-
-
-                                                                                    <div class="desc">Level 3 online courses for beginners</div>
-
-
-                                                                                </div>
-
-
-                                                                            </div>
-
-
-                                                                            <a href="self-funded/index.html" class="link-overlay">
-
-
-                                                                            </a>
-
-
-                                                                        </div>
-
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div class="owl-item cloned active last" style="width: 380px;">
-
-                                                                    <div class="item icon-box-item style-1 ">
-
-
-                                                                        <div class="item-box">
-
-
-                                                                            <div class="item-box-content">
-
-
-                                                                                <div class="box-icon">
-
-
-                                                                                    <span class="icon-inner">
-
-
-                                                                                        <i aria-hidden="true" class=" las la-school"></i>
-
-                                                                                    </span>
-
-
-                                                                                </div>
-
-
-
-                                                                                <div class="box-content">
-
-
-                                                                                    <h4 class="title">Self Funded Courses</h4>
-
-
-                                                                                    <div class="desc">Level 3 self funded courses independently</div>
-
-
-                                                                                </div>
-
-
-                                                                            </div>
-
-
-                                                                            <a href="free-courses/index.html" class="link-overlay">
-
-
-                                                                            </a>
-
-
-                                                                        </div>
-
-
-                                                                    </div>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-
-
-                                                        <div class="owl-nav disabled">
-
-                                                            <div role="presentation" class="owl-prev">
-
-                                                                <span>
-
-                                                                    <i class="las la-arrow-left"></i>
-
-                                                                </span>
-
-                                                            </div>
-
-                                                            <div role="presentation" class="owl-next">
-
-                                                                <span>
-
-                                                                    <i class="las la-arrow-right"></i></span>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="owl-dots disabled"></div>
-
-                                                        </div>
-
-
-                                                    </div>
-
-
-
-                                                </div>
-
-                                            </div>
-
-
-                                        </div>
-
-
-                                    </div>
-
-
+                                    </button>
                                 </div>
-
-
-                            </div>
-
-                    </section>
+                            </section>
+                                    <!-- ✅ Slider Section End -->
 
 
 
-                                            <section class="elementor-section elementor-top-section elementor-element elementor-element-3bb62b8e elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="3bb62b8e" data-element_type="section">
-                                                <div class="elementor-container elementor-column-gap-default">
-                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-134f9bf3" data-id="134f9bf3" data-element_type="column">
-                                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                                            <div class="elementor-element elementor-element-39b37ff2 elementor-widget elementor-widget-gva-image-content" data-id="39b37ff2" data-element_type="widget" data-widget_type="gva-image-content.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <div class="gva-element-gva-image-content gva-element">
-                                                                        <div class="clearfix gsc-image-content skin-v1">
-
-                                                                            <div class="images">
-                                                                                <div class="image-first">
-                                                                                    <img decoding="async" src="https://fmeducation.co.uk/wp-content/uploads/2021/06/image-1.jpg" title="image-1" alt="image-1" loading="lazy" /> </div>
-
-                                                                                <div class="image-second">
-                                                                                    <div class="image-second-inner">
-                                                                                        <img decoding="async" src="https://fmeducation.co.uk/wp-content/uploads/2024/05/5.jpg" alt="Trusted by 5000+ Students" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="box-content">
-                                                                                <div class="content-inner">
-                                                                                    <div class="icon">
-                                                                                        <i aria-hidden="true" class=" flaticon-relationship"></i> </div>
-                                                                                    <h2 class="title">
-                                                                                        <span>Trusted by 5000+ Students</span>
-                                                                                    </h2>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="line-color"></div>
-
+                            <section class="elementor-section elementor-top-section elementor-element elementor-element-746f01d elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="746f01d" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-default">
+                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3787379 column-style-top" data-id="3787379" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-108a5f2 elementor-widget elementor-widget-gva-icon-box-group" data-id="108a5f2" data-element_type="widget" data-widget_type="gva-icon-box-group.default">
+                                        <div class="elementor-widget-container">
+                                            <div class="gva-element-gva-icon-box-group gva-element">
+                                                <div class="gsc-icon-box-group layout-carousel style-1">
+                                                    <div class="init-carousel-owl owl-carousel owl-loaded owl-drag" data-items="3" data-items_lg="3" data-items_md="3" data-items_sm="2" data-items_xs="2" data-items_xx="1" data-loop="1" data-speed="800" data-auto_play="0" data-auto_play_speed="800" data-auto_play_timeout="6000" data-auto_play_hover="1" data-navigation="1" data-pagination="0" data-mouse_drag="1" data-touch_drag="1">
+                                                    <div class="owl-stage-outer">
+                                                        <div class="owl-stage" style="transform: translate3d(-2280px, 0px, 0px); transition: 0.8s; width: 3420px;">
+                                                            <div class="owl-item cloned" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" las la-graduation-cap"></i>
+                                                                            </span>
                                                                         </div>
-
-
-
-
-
-
-
-
-
-
-
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">SFE Courses</h4>
+                                                                            <div class="desc">Level 4 to level 7 courses Funded by Student Finance</div>
+                                                                        </div>
                                                                     </div>
+                                                                    <a href="#" class="link-overlay">
+                                                                    </a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item cloned" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" flaticon-education"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">Level 3 Courses</h4>
+                                                                            <div class="desc">Level 3 online courses for beginners</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="#" class="link-overlay"></a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item cloned" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" las la-school"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">Self Funded Courses</h4>
+                                                                            <div class="desc">Level 3 online courses for beginners</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="#" class="link-overlay"></a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" las la-graduation-cap"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">SFE Courses</h4>
+                                                                            <div class="desc">Level 4 to level 7 courses Funded by Student Finance</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="sfe-funded-courses/index.html" class="link-overlay">
+                                                                    </a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" flaticon-education"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">Level 3 Courses</h4>
+                                                                            <div class="desc">Level 3 online courses for beginners</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="self-funded/index.html" class="link-overlay">
+                                                                    </a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" las la-school"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">Self Funded Courses</h4>
+                                                                            <div class="desc">Level 3 self funded courses independently</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="free-courses/index.html" class="link-overlay">
+                                                                    </a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item cloned active first" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" las la-graduation-cap"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">SFE Courses</h4>
+                                                                            <div class="desc">Level 4 to level 7 courses Funded by Student Finance</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="sfe-funded-courses/index.html" class="link-overlay">
+                                                                    </a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item cloned active center" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" flaticon-education"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">Level 3 Courses</h4>
+                                                                            <div class="desc">Level 3 online courses for beginners</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="self-funded/index.html" class="link-overlay">
+                                                                    </a>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="owl-item cloned active last" style="width: 380px;">
+                                                                <div class="item icon-box-item style-1 ">
+                                                                <div class="item-box">
+                                                                    <div class="item-box-content">
+                                                                        <div class="box-icon">
+                                                                            <span class="icon-inner">
+                                                                            <i aria-hidden="true" class=" las la-school"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="box-content">
+                                                                            <h4 class="title">Self Funded Courses</h4>
+                                                                            <div class="desc">Level 3 self funded courses independently</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="free-courses/index.html" class="link-overlay">
+                                                                    </a>
+                                                                </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61a91a6d column-style-top" data-id="61a91a6d" data-element_type="column">
+                                                    <div class="owl-nav disabled">
+                                                        <div role="presentation" class="owl-prev">
+                                                            <span>
+                                                            <i class="las la-arrow-left"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div role="presentation" class="owl-next">
+                                                            <span>
+                                                            <i class="las la-arrow-right"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="owl-dots disabled"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </section>
+
+
+
+
+                            <section class="elementor-section elementor-top-section elementor-element elementor-element-3bb62b8e elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="3bb62b8e" data-element_type="section">
+                                <div class="elementor-container elementor-column-gap-default">
+                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-134f9bf3" data-id="134f9bf3" data-element_type="column">
+                                        <div class="elementor-widget-wrap elementor-element-populated">
+                                            <div class="elementor-element elementor-element-39b37ff2 elementor-widget elementor-widget-gva-image-content" data-id="39b37ff2" data-element_type="widget" data-widget_type="gva-image-content.default">
+                                                <div class="elementor-widget-container">
+                                                    <div class="gva-element-gva-image-content gva-element">
+                                                        <div class="clearfix gsc-image-content skin-v1">
+                                                            <div class="images">
+                                                                <div class="image-first">
+                                                                    <img decoding="async" src="{{ asset('uploads/about/' . $about->image) }}" title="image-1" alt="image-1" loading="lazy" />
+                                                                </div>
+                                                                <div class="image-second">
+                                                                    <div class="image-second-inner">
+                                                                        <img decoding="async" src="{{ asset('uploads/about1/' . $about->image1) }}" alt="{{ $about->title }}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="box-content">
+                                                                <div class="content-inner">
+                                                                    <div class="icon">
+                                                                        <i aria-hidden="true" class="flaticon-relationship"></i>
+                                                                    </div>
+                                                                    <h2 class="title">
+                                                                        <span>{{ $about->title }}</span>
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                            <div class="line-color"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61a91a6d column-style-top" data-id="61a91a6d" data-element_type="column">
+                                        <div class="elementor-widget-wrap elementor-element-populated">
+                                            <section class="elementor-section elementor-inner-section elementor-element elementor-element-197e843f elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="197e843f" data-element_type="section">
+                                                <div class="elementor-container elementor-column-gap-default">
+                                                    <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-7bef54e column-style-top" data-id="7bef54e" data-element_type="column">
                                                         <div class="elementor-widget-wrap elementor-element-populated">
-                                                            <section class="elementor-section elementor-inner-section elementor-element elementor-element-197e843f elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="197e843f" data-element_type="section">
-                                                                <div class="elementor-container elementor-column-gap-default">
-                                                                    <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-7bef54e column-style-top" data-id="7bef54e" data-element_type="column">
-                                                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                                                            <div class="elementor-element elementor-element-5f6a2163 elementor-widget elementor-widget-gva-heading-block" data-id="5f6a2163" data-element_type="widget" data-widget_type="gva-heading-block.default">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="gva-element-gva-heading-block gva-element">
-                                                                                        <div class="align-left style-1 widget gsc-heading box-align-left auto-responsive">
-                                                                                            <div class="content-inner">
-
-
-                                                                                                <div class="sub-title"><span>About FM Education Hub</span></div>
-
-
-                                                                                                <h2 class="title">
-                                                                                                    <span>Your Path to Educational Excellence</span>
-                                                                                                </h2>
-
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                            <div class="elementor-element elementor-element-5f6a2163 elementor-widget elementor-widget-gva-heading-block" data-id="5f6a2163" data-element_type="widget" data-widget_type="gva-heading-block.default">
+                                                                <div class="elementor-widget-container">
+                                                                    <div class="gva-element-gva-heading-block gva-element">
+                                                                        <div class="align-left style-1 widget gsc-heading box-align-left auto-responsive">
+                                                                            <div class="content-inner">
+                                                                                <div class="sub-title"><span>{{ $about->subtitle }}</span></div>
+                                                                                <h2 class="title">
+                                                                                    <span>{{ $about->title }}</span>
+                                                                                </h2>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </section>
-                                                            <div class="elementor-element elementor-element-1edad1d2 elementor-widget elementor-widget-text-editor" data-id="1edad1d2" data-element_type="widget" data-widget_type="text-editor.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <p>FM Education Hub is a respected education consultancy firm based in London.</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-cf1650f elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="cf1650f" data-element_type="widget" data-widget_type="icon-list.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <ul class="elementor-icon-list-items">
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class=" flaticon-confirmation"></i>						</span>
-                                                                            <span class="elementor-icon-list-text">London's trusted consultancy firm</span>
-                                                                        </li>
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class=" flaticon-confirmation"></i>						</span>
-                                                                            <span class="elementor-icon-list-text"> Expert career guidance offered</span>
-                                                                        </li>
-                                                                        <li class="elementor-icon-list-item">
-                                                                            <span class="elementor-icon-list-icon">
-							<i aria-hidden="true" class=" flaticon-confirmation"></i>						</span>
-                                                                            <span class="elementor-icon-list-text"> Exceptional student services</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                            <div class="elementor-element elementor-element-21c7c99 elementor-widget elementor-widget-html" data-id="21c7c99" data-element_type="widget" data-widget_type="html.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <a class="btn-theme" href="https://fmeducation.co.uk/about/">Read More</a> </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="elementor-section elementor-top-section elementor-element elementor-element-e5a6009 elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="e5a6009" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+
+                                            <div class="elementor-element elementor-element-1edad1d2 elementor-widget elementor-widget-text-editor" data-id="1edad1d2" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                    <p>{!! $about->description !!}</p>
+                                                </div>
+                                            </div>
+
+                                            {{-- <div class="elementor-element elementor-element-cf1650f elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="cf1650f" data-element_type="widget" data-widget_type="icon-list.default">
+                                                <div class="elementor-widget-container">
+                                                    <ul class="elementor-icon-list-items">
+
+                                                            <li class="elementor-icon-list-item">
+                                                                <span class="elementor-icon-list-icon">
+                                                                    <i aria-hidden="true" class="flaticon-confirmation"></i>
+                                                                </span>
+                                                                <span class="elementor-icon-list-text">{{ $point }}</span>
+                                                            </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div> --}}
+
+                                            <div class="elementor-element elementor-element-21c7c99 elementor-widget elementor-widget-html" data-id="21c7c99" data-element_type="widget" data-widget_type="html.default">
+                                                <div class="elementor-widget-container">
+                                                    <a class="btn-theme" href="{{ url('/about') }}">Read More</a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                                           <section class="elementor-section elementor-top-section elementor-element elementor-element-e5a6009 elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="e5a6009" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                                 <div class="elementor-container elementor-column-gap-default">
                                                     <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-49773d0 column-style-top" data-id="49773d0" data-element_type="column">
                                                         <div class="elementor-widget-wrap elementor-element-populated">
                                                             <div class="elementor-element elementor-element-8a0bda4 elementor-widget elementor-widget-gva-heading-block" data-id="8a0bda4" data-element_type="widget" data-widget_type="gva-heading-block.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <div class="gva-element-gva-heading-block gva-element">
-                                                                        <div class="align-left style-1 widget gsc-heading box-align- auto-responsive">
-                                                                            <div class="content-inner">
-
-
-                                                                                <div class="sub-title"><span>Facts About Us</span></div>
-
-
-                                                                                <h2 class="title">
-                                                                                    <span>Our Mission is to
-Polish your skill</span>
-                                                                                </h2>
-                                                                                <div class="title-desc">Our A-Z consultation process enables you to be hired by the top universities in the UK.</div>
-
-
-                                                                            </div>
+                                                            <div class="elementor-widget-container">
+                                                                <div class="gva-element-gva-heading-block gva-element">
+                                                                    <div class="align-left style-1 widget gsc-heading box-align- auto-responsive">
+                                                                        <div class="content-inner">
+                                                                        <div class="sub-title"><span>Facts About Us</span></div>
+                                                                        <h2 class="title">
+                                                                            <span>Our Mission is to
+                                                                            Polish your skill</span>
+                                                                        </h2>
+                                                                        <div class="title-desc">Our A-Z consultation process enables you to be hired by the top universities in the UK.</div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c59df1 column-style-top" data-id="4c59df1" data-element_type="column">
                                                         <div class="elementor-widget-wrap elementor-element-populated">
                                                             <section class="elementor-section elementor-inner-section elementor-element elementor-element-0cf9af9 elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="0cf9af9" data-element_type="section">
-                                                                <div class="elementor-container elementor-column-gap-default">
-                                                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ce03431 column-style-top" data-id="ce03431" data-element_type="column">
-                                                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                                                            <div class="elementor-element elementor-element-d655ce2 elementor-widget elementor-widget-gva-counter" data-id="d655ce2" data-element_type="widget" data-widget_type="gva-counter.default">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="gva-element-gva-counter gva-element">
-                                                                                        <div class="widget milestone-block style-3">
-                                                                                            <div class="box-content">
-                                                                                                <div class="milestone-icon">
-                                                                                                    <span class="icon">
-                     <i aria-hidden="true" class=" flaticon-teacher"></i>                  </span>
-                                                                                                </div>
-
-                                                                                                <div class="milestone-content">
-                                                                                                    <div class="milestone-number-inner">
-                                                                                                        <span class="milestone-number">5125</span>
-                                                                                                    </div>
-                                                                                                    <div class="milestone-text">
-                                                                                                        Students </div>
-                                                                                                </div>
-
-
-                                                                                            </div>
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ce03431 column-style-top" data-id="ce03431" data-element_type="column">
+                                                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                                                        <div class="elementor-element elementor-element-d655ce2 elementor-widget elementor-widget-gva-counter" data-id="d655ce2" data-element_type="widget" data-widget_type="gva-counter.default">
+                                                                        <div class="elementor-widget-container">
+                                                                            <div class="gva-element-gva-counter gva-element">
+                                                                                <div class="widget milestone-block style-3">
+                                                                                    <div class="box-content">
+                                                                                    <div class="milestone-icon">
+                                                                                        <span class="icon">
+                                                                                        <i aria-hidden="true" class=" flaticon-teacher"></i>                  </span>
+                                                                                    </div>
+                                                                                    <div class="milestone-content">
+                                                                                        <div class="milestone-number-inner">
+                                                                                            <span class="milestone-number">5125</span>
                                                                                         </div>
-
+                                                                                        <div class="milestone-text">
+                                                                                            Students
+                                                                                        </div>
+                                                                                    </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-236f227 column-style-top" data-id="236f227" data-element_type="column">
-                                                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                                                            <div class="elementor-element elementor-element-b935209 elementor-widget elementor-widget-gva-counter" data-id="b935209" data-element_type="widget" data-widget_type="gva-counter.default">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="gva-element-gva-counter gva-element">
-                                                                                        <div class="widget milestone-block style-3">
-                                                                                            <div class="box-content">
-                                                                                                <div class="milestone-icon">
-                                                                                                    <span class="icon">
-                     <i aria-hidden="true" class="far fa-grin-hearts"></i>                  </span>
-                                                                                                </div>
-
-                                                                                                <div class="milestone-content">
-                                                                                                    <div class="milestone-number-inner">
-                                                                                                        <span class="milestone-number">4280</span>
-                                                                                                    </div>
-                                                                                                    <div class="milestone-text">
-                                                                                                        Reviews </div>
-                                                                                                </div>
-
-
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-428445b column-style-top" data-id="428445b" data-element_type="column">
-                                                                        <div class="elementor-widget-wrap elementor-element-populated">
-                                                                            <div class="elementor-element elementor-element-e6a2943 elementor-widget elementor-widget-gva-counter" data-id="e6a2943" data-element_type="widget" data-widget_type="gva-counter.default">
-                                                                                <div class="elementor-widget-container">
-                                                                                    <div class="gva-element-gva-counter gva-element">
-                                                                                        <div class="widget milestone-block style-3">
-                                                                                            <div class="box-content">
-                                                                                                <div class="milestone-icon">
-                                                                                                    <span class="icon">
-                     <i aria-hidden="true" class=" flaticon-student-1"></i>                  </span>
-                                                                                                </div>
-
-                                                                                                <div class="milestone-content">
-                                                                                                    <div class="milestone-number-inner">
-                                                                                                        <span class="milestone-number">3025</span>
-                                                                                                    </div>
-                                                                                                    <div class="milestone-text">
-                                                                                                        Career Build </div>
-                                                                                                </div>
-
-
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-236f227 column-style-top" data-id="236f227" data-element_type="column">
+                                                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                                                        <div class="elementor-element elementor-element-b935209 elementor-widget elementor-widget-gva-counter" data-id="b935209" data-element_type="widget" data-widget_type="gva-counter.default">
+                                                                        <div class="elementor-widget-container">
+                                                                            <div class="gva-element-gva-counter gva-element">
+                                                                                <div class="widget milestone-block style-3">
+                                                                                    <div class="box-content">
+                                                                                    <div class="milestone-icon">
+                                                                                        <span class="icon">
+                                                                                        <i aria-hidden="true" class="far fa-grin-hearts"></i>                  </span>
+                                                                                    </div>
+                                                                                    <div class="milestone-content">
+                                                                                        <div class="milestone-number-inner">
+                                                                                            <span class="milestone-number">4280</span>
+                                                                                        </div>
+                                                                                        <div class="milestone-text">
+                                                                                            Reviews
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-428445b column-style-top" data-id="428445b" data-element_type="column">
+                                                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                                                        <div class="elementor-element elementor-element-e6a2943 elementor-widget elementor-widget-gva-counter" data-id="e6a2943" data-element_type="widget" data-widget_type="gva-counter.default">
+                                                                        <div class="elementor-widget-container">
+                                                                            <div class="gva-element-gva-counter gva-element">
+                                                                                <div class="widget milestone-block style-3">
+                                                                                    <div class="box-content">
+                                                                                    <div class="milestone-icon">
+                                                                                        <span class="icon">
+                                                                                        <i aria-hidden="true" class=" flaticon-student-1"></i>                  </span>
+                                                                                    </div>
+                                                                                    <div class="milestone-content">
+                                                                                        <div class="milestone-number-inner">
+                                                                                            <span class="milestone-number">3025</span>
+                                                                                        </div>
+                                                                                        <div class="milestone-text">
+                                                                                            Career Build
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             </section>
                                                         </div>
                                                     </div>
@@ -991,88 +671,49 @@ Polish your skill</span>
                                                     <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-89023a6 column-style-top" data-id="89023a6" data-element_type="column">
                                                         <div class="elementor-widget-wrap elementor-element-populated">
                                                             <div class="elementor-element elementor-element-878cabf elementor-widget elementor-widget-gva-heading-block" data-id="878cabf" data-element_type="widget" data-widget_type="gva-heading-block.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <div class="gva-element-gva-heading-block gva-element">
-                                                                        <div class="align-center style-1 widget gsc-heading box-align-left auto-responsive">
-                                                                            <div class="content-inner">
-
-
-                                                                                <div class="sub-title"><span>Check Our Courses</span></div>
-
-
-                                                                                <h2 class="title">
-                                                                                    <span>Top Categories</span>
-                                                                                </h2>
-
-
-                                                                            </div>
+                                                            <div class="elementor-widget-container">
+                                                                <div class="gva-element-gva-heading-block gva-element">
+                                                                    <div class="align-center style-1 widget gsc-heading box-align-left auto-responsive">
+                                                                        <div class="content-inner">
+                                                                        <div class="sub-title"><span>Check Our Courses</span></div>
+                                                                        <h2 class="title">
+                                                                            <span>Top Categories</span>
+                                                                        </h2>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            </div>
                                                             <div class="elementor-element elementor-element-8a480e1 elementor-widget elementor-widget-gva-course-banner-group" data-id="8a480e1" data-element_type="widget" data-widget_type="gva-course-banner-group.default">
-                                                                <div class="elementor-widget-container">
-                                                                    <div class="gva-element-gva-course-banner-group gva-element">
-                                                                        <div class="gsc-course-banner-group layout-grid style-1">
-                                                                            <div class="lg-block-grid-3 md-block-grid-3 sm-block-grid-2 xs-block-grid-1 xx-block-grid-1">
-
-                                                                                <div class="item banner-group-item">
-                                                                                    <div class="banner-item-content">
-
-                                                                                        <div class="banner-image">
-                                                                                            <img decoding="async" src="https://fmeducation.co.uk/wp-content/uploads/2021/06/cat-1.jpg" alt="SFE Courses" />
-                                                                                        </div>
-
-                                                                                        <div class="banner-content">
-                                                                                            <div class="clearfix"></div>
-                                                                                            <h3 class="title">SFE Courses</h3>
-                                                                                        </div>
-
-                                                                                        <a class="link-term-overlay" href="https://fmeducation.co.uk/sfe-funded-courses/"></a>
-
-                                                                                    </div>
+                                                            <div class="elementor-widget-container">
+                                                                <div class="gva-element-gva-course-banner-group gva-element">
+                                                              <div class="gsc-course-banner-group layout-grid style-1">
+                                                                <div class="lg-block-grid-3 md-block-grid-3 sm-block-grid-2 xs-block-grid-1 xx-block-grid-1">
+                                                                    @foreach ($courses as $course)
+                                                                        <div class="item banner-group-item">
+                                                                            <div class="banner-item-content">
+                                                                                <div class="banner-image">
+                                                                                    <img decoding="async" src="{{'uploads/course/' . $course->image }}" alt="{{ $course->name }}" />
                                                                                 </div>
-                                                                                <div class="item banner-group-item">
-                                                                                    <div class="banner-item-content">
-
-                                                                                        <div class="banner-image">
-                                                                                            <img decoding="async" src="https://fmeducation.co.uk/wp-content/uploads/2021/06/cat-2.jpg" alt="Self funded Courses" />
-                                                                                        </div>
-
-                                                                                        <div class="banner-content">
-                                                                                            <div class="clearfix"></div>
-                                                                                            <h3 class="title">Self funded Courses</h3>
-                                                                                        </div>
-
-                                                                                        <a class="link-term-overlay" href="https://fmeducation.co.uk/self-funded/"></a>
-
-                                                                                    </div>
+                                                                                <div class="banner-content">
+                                                                                    <div class="clearfix"></div>
+                                                                                    <h3 class="title">{{ $course->title }}</h3>
                                                                                 </div>
-                                                                                <div class="item banner-group-item">
-                                                                                    <div class="banner-item-content">
-
-                                                                                        <div class="banner-image">
-                                                                                            <img decoding="async" src="https://fmeducation.co.uk/wp-content/uploads/2021/06/cat-3.jpg" alt="Free Courses" />
-                                                                                        </div>
-
-                                                                                        <div class="banner-content">
-                                                                                            <div class="clearfix"></div>
-                                                                                            <h3 class="title">Free Courses</h3>
-                                                                                        </div>
-
-                                                                                        <a class="link-term-overlay" href="https://fmeducation.co.uk/free-courses/"></a>
-
-                                                                                    </div>
-                                                                                </div>
+                                                                                <a class="link-term-overlay" href="{{ $course->link }}"></a>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    @endforeach
                                                                 </div>
+                                                            </div>
+
+                                                                </div>
+                                                            </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </section>
+
                                             <section class="elementor-section elementor-top-section elementor-element elementor-element-2a090db bg-row-theme elementor-section-boxed elementor-section-height-default elementor-section-height-default row-top" data-id="2a090db" data-element_type="section"
                                                 data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
                                                 <div class="elementor-container elementor-column-gap-default">
@@ -1419,82 +1060,32 @@ Polish your skill</span>
                                                                         <div class="gva-testimonial-carousel style-2">
                                                                             <div class="init-carousel-owl owl-carousel" data-items="3" data-items_lg="3" data-items_md="2" data-items_sm="2" data-items_xs="1" data-items_xx="1" data-loop="1" data-speed="800" data-auto_play="1" data-auto_play_speed="800" data-auto_play_timeout="6000"
                                                                                 data-auto_play_hover="1" data-navigation="0" data-pagination="0" data-mouse_drag="1" data-touch_drag="1">
+                                                                                @foreach ($testimonials as $testimonial)
+
+
                                                                                 <div class="item">
                                                                                     <div class="testimonial-item">
                                                                                         <div class="testimonial-item-content">
                                                                                             <div class="testimonial-title">
-                                                                                                Level 3 Diploma </div>
+                                                                                               {{$testimonial->slug}} </div>
                                                                                             <div class="testimonial-content">
-                                                                                                FM Education Hub guided me through my Level 3 Diploma course selection. Their support was excellent, and I am now well on my way to achieving my goals. </div>
+                                                                                               {{$testimonial->message}} </div>
                                                                                             <div class="testimonial-meta">
                                                                                                 <div class="testimonial-image">
-                                                                                                    <img decoding="async" src="{{ asset('wp-content/uploads/2024/07/Sarah.jpg') }}" alt="Sarah J." />
+                                                                                                    <img decoding="async" src="{{ asset('uploads/testimonial/' . $testimonial->image) }}" alt="Sarah J." />
                                                                                                 </div>
                                                                                                 <div class="testimonial-information">
-                                                                                                    <span class="testimonial-name">Sarah J.</span>
-                                                                                                    <span class="testimonial-job">Student</span>
+                                                                                                    <span class="testimonial-name">{{ $testimonial->name }}</span>
+                                                                                                    <span class="testimonial-job">{{ $testimonial->title }}</span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="item">
-                                                                                    <div class="testimonial-item">
-                                                                                        <div class="testimonial-item-content">
-                                                                                            <div class="testimonial-title">
-                                                                                                Higher Education </div>
-                                                                                            <div class="testimonial-content">
-                                                                                                Thanks to FM Education Hub, I successfully enrolled in the Level 4 Certification of Higher Education. Their expertise made the process smooth and straightforward. </div>
-                                                                                            <div class="testimonial-meta">
-                                                                                                <div class="testimonial-image">
-                                                                                                    <img decoding="async" src="{{ asset('wp-content/uploads/2024/07/Megan.jpg') }}" alt="Michael B." />
-                                                                                                </div>
-                                                                                                <div class="testimonial-information">
-                                                                                                    <span class="testimonial-name">Michael B.</span>
-                                                                                                    <span class="testimonial-job">Student</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="item">
-                                                                                    <div class="testimonial-item">
-                                                                                        <div class="testimonial-item-content">
-                                                                                            <div class="testimonial-title">
-                                                                                                HNC/HND Success </div>
-                                                                                            <div class="testimonial-content">
-                                                                                                FM Education Hub helped me navigate the HNC/HND application process. I am now confidently pursuing my studies with their ongoing support. </div>
-                                                                                            <div class="testimonial-meta">
-                                                                                                <div class="testimonial-image">
-                                                                                                    <img decoding="async" src="{{ asset('wp-content/uploads/2024/07/Liam.jpg') }}" alt="Liam D." />
-                                                                                                </div>
-                                                                                                <div class="testimonial-information">
-                                                                                                    <span class="testimonial-name">Liam D.</span>
-                                                                                                    <span class="testimonial-job">Student</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="item">
-                                                                                    <div class="testimonial-item">
-                                                                                        <div class="testimonial-item-content">
-                                                                                            <div class="testimonial-title">
-                                                                                                Functional Skills </div>
-                                                                                            <div class="testimonial-content">
-                                                                                                FM Education Hub provided excellent support for my Functional Skills course. Their team's help and personalized guidance was key to my success. </div>
-                                                                                            <div class="testimonial-meta">
-                                                                                                <div class="testimonial-image">
-                                                                                                    <img decoding="async" src="{{ asset('wp-content/uploads/2024/07/Micheal.jpg') }}" alt="Megan T." />
-                                                                                                </div>
-                                                                                                <div class="testimonial-information">
-                                                                                                    <span class="testimonial-name">Megan T.</span>
-                                                                                                    <span class="testimonial-job">Student</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+
+
+                                                                                 @endforeach
+
                                                                             </div>
                                                                         </div>
                                                                     </div>

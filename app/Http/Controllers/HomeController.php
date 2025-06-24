@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Setting;
 
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class HomeController extends Controller
 
 
       public function index ()
-            {
-                return view('admin.index');
-            }
+        {
+            $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+            return view('admin.index', compact('settings'));
+        }
 }

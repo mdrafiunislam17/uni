@@ -8,7 +8,7 @@
                 <div class="header-left">
                     <div class="logo-mobile">
                         <a href="">
-                            <img src="wp-content/uploads/2020/12/FM-Education-Hub-Logo-2-1.png" alt="FM Education Hub" />
+                            <img src=" {{ asset("uploads/" . $settings["SETTING_SITE_LOGO"]) }}" alt="FM Education Hub" />
                         </a>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <div class="gva-offcanvas-content mobile">
                             <div class="top-canvas">
                                 <a class="logo-mm" href="">
-                                    <img src="wp-content/uploads/2020/12/FM-Education-Hub-Logo-2-1.png" alt="FM Education Hub" />
+                                    <img src=" {{ asset("uploads/" . $settings["SETTING_SITE_LOGO"]) }}" alt="FM Education Hub" />
                                 </a>
                                 <a class="control-close-mm" href="#"><i class="far fa-times-circle"></i></a>
                             </div>
@@ -43,7 +43,7 @@
                                                     </a>
                                                 </li>
 
-                                                <li id="menu-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="{{ route('frontend.faq') }}" onClick="return true"><span class="menu-title">FAQ</span></a></li>
+                                                <li id="menu-item-2149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="{{ route('frontend.faqs') }}" onClick="return true"><span class="menu-title">FAQ</span></a></li>
                                             </ul>
                                         </li>
                                         <li id="menu-item-1435" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1435"><a href="#" onClick="return true"><span class="menu-title">Courses</span><span class="caret"></span></a>
@@ -90,7 +90,7 @@
                                                 <div class="gsc-logo text-left">
 
                                                     <a class="site-branding-logo" href="{{ route('frontend') }}" title="Home " rel="Home ">
-                                                        <img src="wp-content/uploads/2020/12/FM-Education-Hub-Logo-4.png" alt="Home " />
+                                                        <img src="{{ asset("uploads/" . $settings["SETTING_SITE_LOGO"]) }}" alt="Home " />
                                                     </a>
                                                 </div>
                                             </div>
@@ -288,16 +288,25 @@
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1434"><a href="about/" onClick="return true"><span class="menu-title">About</span><span class="caret"></span></a>
                                                                 <ul class="submenu-inner ">
                                                                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1949"><a href="{{ route('frontend.our-team') }}" onClick="return true"><span class="menu-title">Our Team</span></a></li>
-                                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="{{ route('frontend.faq') }}" onClick="return true"><span class="menu-title">FAQ</span></a></li>
+                                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2149"><a href="{{ route('frontend.faqs') }}" onClick="return true"><span class="menu-title">FAQ</span></a></li>
                                                                 </ul>
                                                             </li>
-                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1435"><a href="#" onClick="return true"><span class="menu-title">Courses</span><span class="caret"></span></a>
-                                                                <ul class="submenu-inner ">
-                                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1944"><a href="{{ route('frontend.sfe-funded-courses') }}" onClick="return true"><span class="menu-title">SFE Funded Courses</span></a></li>
-                                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1943"><a href="{{ route('frontend.self-funded') }}" onClick="return true"><span class="menu-title">Self Funded</span></a></li>
-                                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1942"><a href="{{ route('frontend.free-courses') }}" onClick="return true"><span class="menu-title">Free Courses</span></a></li>
-                                                                </ul>
-                                                            </li>
+                                                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1435">
+                                                            <a href="#" onClick="return true">
+                                                                <span class="menu-title">Courses</span><span class="caret"></span>
+                                                            </a>
+                                                            <ul class="submenu-inner">
+                                                                @foreach($coursesCategory as $category)
+                                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                                        <a href="{{ route('frontend.courses.category', ['name' => urlencode($category->name)]) }}" onClick="return true">
+                                                                            <span class="menu-title">{{ $category->name }}</span>
+                                                                        </a>
+                                                                    </li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </li>
+
+
                                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1432"><a href="{{ route('frontend.contact') }}" onClick="return true"><span class="menu-title">Contact</span></a></li>
                                                         </ul>
                                                     </div>

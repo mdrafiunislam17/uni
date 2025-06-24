@@ -278,98 +278,40 @@ Our Team Page
     <h2>Frequently Asked Questions</h2>
     <div class="row">
       <!-- Left Column -->
-      <div class="col-md-6">
-        <div class="accordion" id="faqLeft">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq1-heading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
-                aria-expanded="false" aria-controls="faq1">
-                What types of courses does FM Education Hub Consultant offer?
-              </button>
-            </h2>
-            <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faq1-heading" data-bs-parent="#faqLeft">
-              <div class="accordion-body">
-                FM Education Hub Consultant offers a diverse range of courses in various disciplines, including business, technology, healthcare, and creative arts.
-              </div>
-            </div>
-          </div>
+        @php
+        $chunks = $faqs->chunk(ceil($faqs->count() / 2));
+        @endphp
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq2-heading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
-                aria-expanded="false" aria-controls="faq2">
-                How do I enroll in a course?
-              </button>
-            </h2>
-            <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#faqLeft">
-              <div class="accordion-body">
-                Visit our website and choose a course. You can also call us directly for personalized assistance.
-              </div>
+        <div class="row">
+        @foreach ($chunks as $chunkIndex => $chunk)
+            <div class="col-md-6">
+            <div class="accordion" id="faqAccordion{{ $chunkIndex }}">
+                @foreach ($chunk as $index => $faq)
+                @php
+                    $uniqueId = $chunkIndex . '-' . $index;
+                @endphp
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq-heading-{{ $uniqueId }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ $uniqueId }}"
+                        aria-expanded="false" aria-controls="faq-{{ $uniqueId }}">
+                        {{ $faq->question }}
+                    </button>
+                    </h2>
+                    <div id="faq-{{ $uniqueId }}" class="accordion-collapse collapse" aria-labelledby="faq-heading-{{ $uniqueId }}" data-bs-parent="#faqAccordion{{ $chunkIndex }}">
+                    <div class="accordion-body">
+                        {!! $faq->answer !!}
+                    </div>
+                    </div>
+                </div>
+                @endforeach
             </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq3-heading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
-                aria-expanded="false" aria-controls="faq3">
-                Are there any prerequisites?
-              </button>
-            </h2>
-            <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#faqLeft">
-              <div class="accordion-body">
-                Prerequisites vary. Please check the course description or contact us.
-              </div>
             </div>
-          </div>
+        @endforeach
         </div>
-      </div>
+
 
       <!-- Right Column -->
-      <div class="col-md-6">
-        <div class="accordion" id="faqRight">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq4-heading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"
-                aria-expanded="false" aria-controls="faq4">
-                How do I apply for student finance?
-              </button>
-            </h2>
-            <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#faqRight">
-              <div class="accordion-body">
-                Apply via the Student Finance England website with your details and documents.
-              </div>
-            </div>
-          </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq5-heading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5"
-                aria-expanded="false" aria-controls="faq5">
-                Am I eligible for finance?
-              </button>
-            </h2>
-            <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5-heading" data-bs-parent="#faqRight">
-              <div class="accordion-body">
-                It depends on residency, course, and income. Use the online eligibility checker.
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="faq6-heading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6"
-                aria-expanded="false" aria-controls="faq6">
-                When will I receive payments?
-              </button>
-            </h2>
-            <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6-heading" data-bs-parent="#faqRight">
-              <div class="accordion-body">
-                Tuition fees go directly to the institution; maintenance loans go to your bank account termly.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </div>

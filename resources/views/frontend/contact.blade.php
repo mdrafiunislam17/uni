@@ -197,24 +197,51 @@ Our Team Page
       <!-- Right Column : Contact Form -->
         <div class="col-lg-6">
         <div class="bg-white p-4 rounded-4 shadow-sm">
-            <form class="needs-validation" novalidate>
+            {{-- <form class="needs-validation" novalidate> --}}
+        <form action="{{ route("frontend.contactstore") }}" method="post" class="needs-validation" enctype="multipart/form-data">
+        @csrf
             <div class="mb-3">
                 <label class="form-label" for="contactName">Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="contactName" required>
+                <input type="text" class="form-control" id="contactName" name="name" required>
                 <div class="invalid-feedback">Please enter your name.</div>
             </div>
 
             <div class="mb-3">
+                <label class="form-label" for="contactPhone">Phone <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="contactPhone" name="phone" required>
+                <div class="invalid-feedback">Please enter your contactPhone.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="contactSubject">Subject <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="contactSubject" name="subject" required>
+                <div class="invalid-feedback">Please enter your contactSubject.</div>
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label" for="contactEmail">Email <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="contactEmail" required>
+                <input type="email" class="form-control" id="contactEmail" name="email" required>
                 <div class="invalid-feedback">Please enter a valid email.</div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="contactMsg">Message <span class="text-danger">*</span></label>
-                <textarea class="form-control" id="contactMsg" rows="4" required></textarea>
+                <textarea name="message" class="form-control" id="contactMsg" rows="4" required></textarea>
                 <div class="invalid-feedback">Write a message please.</div>
             </div>
+
+            <input type="hidden" name="status" value="1">
+
+{{--
+             <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <div class="col-sm-6">
+                            <select name="status" id="status" class="form-control">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+                    </div> --}}
 
             <button type="submit" class="btn w-auto px-5 py-2" style="background-color: var(--e-global-color-primary); border-color: var(--e-global-color-primary); color: #fff;">
                 Submit
@@ -238,4 +265,24 @@ Our Team Page
 @push('scripts')
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // Bootstrap validation
+    (function () {
+        'use strict'
+
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+
 @endpush
