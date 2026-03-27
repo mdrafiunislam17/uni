@@ -44,6 +44,15 @@ class FrontendController extends Controller
 
     }
 
+    public function about()
+    {
+        $about = About::latest()->first();
+        $coursesCategory = CourseCategory::all();
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+         $testimonials = Testimonial::all();
+        return view('frontend.about', compact('about','coursesCategory','settings','testimonials'));
+    }
+
     public function showCategory($name)
     {
         $category = CourseCategory::where('name', urldecode($name))->firstOrFail();
@@ -52,6 +61,15 @@ class FrontendController extends Controller
         $settings = Setting::query()->pluck("value", "setting_name")->toArray();
 
         return view('frontend.coursesCategory', compact('category', 'courses','coursesCategory','settings'));
+    }
+
+    public function categoryDetails($slug)
+    {
+        $course = Course::where('slug', $slug)->firstOrFail();
+        $coursesCategory = CourseCategory::all();
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+
+        return view('frontend.categoryDetails', compact('course', 'coursesCategory','settings'));
     }
 
 
@@ -92,6 +110,14 @@ class FrontendController extends Controller
         $teams = Team::all();
         $settings = Setting::query()->pluck("value", "setting_name")->toArray();
         return view('frontend.our-team', compact('coursesCategory','teams','settings'));
+    }
+
+    public function teamDetails($slug)
+    {
+        $team = Team::where('slug', $slug)->firstOrFail();
+        $coursesCategory = CourseCategory::all();
+        $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+        return view('frontend.team-details', compact('team','coursesCategory','settings'));
     }
 
     public function faq()

@@ -47,14 +47,14 @@
                 </div>
 
                 <!-- Subtitle -->
-                <div class="form-group row">
+                {{-- <div class="form-group row">
                     <label for="subtitle" class="col-sm-3 col-form-label text-right font-weight-bold">Subtitle</label>
                     <div class="col-sm-6">
                         <input type="text" name="subtitle" id="subtitle" value="{{ old('subtitle', $about->subtitle) }}"
                                class="form-control">
                         @error('subtitle') <div class="text-danger">{{ $message }}</div> @enderror
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="form-group row">
                     <label for="short_description" class="col-sm-3 col-form-label text-right font-weight-bold">Short Description</label>

@@ -102,7 +102,7 @@ class AboutController extends Controller
         $about->subtitle = $request->subtitle;
         $about->description = $request->description;
         $about->image = $this->uploadImage($request->file('image'));
-        $about->image1 = $this->uploadImage1($request->file('image1'));
+         $about->image1 = $this->uploadImage1($request->file('image1'));
         $about->save();
 
         return redirect()->route('about.index')->with('success', 'About created successfully.');

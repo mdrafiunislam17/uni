@@ -40,7 +40,7 @@
                         <th>Sort</th>
                         <th>Image</th>
                         <th>Title</th>
-                        <th>Subtitle</th>
+                        {{-- <th>Subtitle</th> --}}
                         <th>Status</th>
                         <th style="width: 120px;">Action</th>
                     </tr>
@@ -95,7 +95,7 @@ $(document).ready(function() {
             { data: 'sort', name: 'sort' },
             { data: 'image', name: 'image', orderable: false, searchable: false },
             { data: 'title', name: 'title' },
-            { data: 'subtitle', name: 'subtitle' },
+            // { data: 'subtitle', name: 'subtitle' },
             { data: 'status', name: 'status', orderable: false, searchable: false },
             { data: 'action', name: 'action', orderable: false, searchable: false },
         ],

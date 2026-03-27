@@ -29,31 +29,32 @@ class CourseCategoryController extends Controller
 public function index(Request $request)
 {
     if ($request->ajax()) {
-        $data = CourseCategory::select(['id', 'name']); // adjust fields as needed
+        $data = CourseCategory::select(['id', 'name'])->orderBy('id', 'asc');
+
         return DataTables::of($data)
-            ->addIndexColumn() // This is what generates DT_RowIndex
-           ->addColumn('action', function($row){
-            $btn = '<a href="'.route('courseCategorics.edit', $row->id).'" class="edit btn btn-primary btn-sm me-1" title="Edit">
-                        <i class="fas fa-edit"></i>
-                    </a> ';
-            $btn .= '<form action="'.route('courseCategorics.destroy', $row->id).'" method="POST" style="display:inline;">
-                        '.csrf_field().'
-                        '.method_field('DELETE').'
-                        <button type="button" class="btn btn-danger btn-sm delete-btn" title="Delete">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </form>';
+            ->addIndexColumn()
+            ->addColumn('action', function($row){
+                $btn = '<a href="'.route('courseCategorics.edit', $row->id).'" class="edit btn btn-primary btn-sm me-1" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a> ';
+
+                $btn .= '<form action="'.route('courseCategorics.destroy', $row->id).'" method="POST" style="display:inline;">
+                            '.csrf_field().'
+                            '.method_field('DELETE').'
+                            <button type="button" class="btn btn-danger btn-sm delete-btn" title="Delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                         </form>';
 
                 return $btn;
             })
-
-            ->rawColumns(['action']) // to render HTML in action column
+            ->rawColumns(['action'])
             ->make(true);
     }
 
-     $settings = Setting::query()->pluck("value", "setting_name")->toArray();
+    $settings = Setting::query()->pluck("value", "setting_name")->toArray();
 
-    return view('admin.courseCategory.index',compact('settings')); // adjust view name as needed
+    return view('admin.courseCategory.index', compact('settings'));
 }
 
 

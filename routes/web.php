@@ -43,9 +43,12 @@ Route::get('apply-now', [FrontendController::class, 'applyNow'])->name('frontend
 Route::post('apply-now', [FrontendController::class, 'applyNowstore'])->name('frontend.applyNowstore');
 
 Route::get('/',[FrontendController::class, 'index'])->name('frontend');
-Route::get('/courses/category/{name}', [FrontendController::class, 'showCategory'])->name('frontend.courses.category');
+Route::get('/frontend/about',[FrontendController::class, 'about'])->name('frontend.about');
+Route::get('/sub/courses/category/{name}', [FrontendController::class, 'showCategory'])->name('frontend.courses.category');
+Route::get('/categoryess/details/{slug}',[FrontendController::class, 'categoryDetails'])->name('frontend.categoryes.details');
 
 Route::get('our-team', [FrontendController::class, 'ourTeam'])->name('frontend.our-team');
+Route::get('our-teames/{slug}', [FrontendController::class, 'teamDetails'])->name('frontend.team-details');
 
 Route::get('faqas',[FrontendController::class, 'faq'])->name('frontend.faqs');
 

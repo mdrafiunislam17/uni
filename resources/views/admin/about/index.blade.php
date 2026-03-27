@@ -40,7 +40,7 @@
                         <th>Si</th>
                         <th>Image</th>
                         <th>Title</th>
-                        <th>subtitle</th>
+                        {{-- <th>subtitle</th> --}}
                         <th style="width: 120px;">Action</th>
                     </tr>
                     </thead>
@@ -82,20 +82,22 @@
 <script>
 $(function () {
     let deleteForm = null;
-    const deleteModal = new bootstrap.Modal('#deleteConfirmModal');
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
 
     $('#dataTable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: { url: "{{ route('about.index') }}", type: 'GET' },
+        ajax: {
+            url: "{{ route('about.index') }}",
+            type: 'GET'
+        },
         columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'image', name: 'image', orderable: false, searchable: false },
             { data: 'title', name: 'title' },
-            { data: 'subtitle', name: 'subtitle' },
             { data: 'action', name: 'action', orderable: false, searchable: false }
         ],
-        order: [[4, 'asc']],
+        order: [[2, 'asc']],
         responsive: true
     });
 

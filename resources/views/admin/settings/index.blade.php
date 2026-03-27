@@ -173,7 +173,7 @@
                         </div>
                     </div>
 
-                    <hr>
+                    {{-- <hr>
                     <div class="form-group row">
                         <label for="SETTING_ABOUT_US" class="col-sm-3 col-form-label text-right font-weight-bold">About
                             Us</label>
@@ -181,7 +181,7 @@
                             <textarea name="SETTING_ABOUT_US" id="SETTING_ABOUT_US"
                                       class="form-control">{{ $settings["SETTING_ABOUT_US"] }}</textarea>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group row">
                         <div class="offset-3 col-sm-6">

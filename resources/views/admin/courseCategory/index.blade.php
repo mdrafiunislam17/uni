@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">courseCategory</h1>
+        <h1 class="h3 mb-0 text-gray-800">CourseCategory</h1>
         <a href="{{ route('courseCategorics.create') }}" class="btn btn-primary btn-sm shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i> Create courseCategory
         </a>
@@ -93,7 +93,7 @@ $(document).ready(function() {
             { data: 'name', name: 'name' },
             { data: 'action', name: 'action', orderable: false, searchable: false },
         ],
-        order: [[0, 'asc']],
+        // order: [[0, 'desc']],
     });
 
     // Open delete modal on clicking delete button

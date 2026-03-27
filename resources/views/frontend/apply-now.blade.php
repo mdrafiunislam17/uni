@@ -1,203 +1,188 @@
 @extends('frontend.includes.app')
 
 @section('title')
-Our Team Page
+Appointment Page
 @endsection
 
-@push('styles')
-<!-- ✅ Bootstrap CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- ✅ Custom CSS -->
-<style>
-
-
-
-
-</style>
-@endpush
 
 @section('body')
 
 
-	<div class="wrapper-page"> <!--page-->
 
+ <section class="breadcrumb-wrapper fix bg-cover" style="background-image: url({{ asset('assets/img/inner-page/breadcrumb.jpg') }});">
+            {{-- <div class="shape">
+                <img src="assets/img/inner-page/shape.png" alt="img">
+            </div> --}}
+            <div class="container">
+                <div class="page-heading">
+                    <h1 class="breadcrumb-title">Appointment</h1>
+                    <ul class="breadcrumb-list">
+                        <li>
+                            <a href="{{ route('frontend') }}">Home</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </li>
+                        <li>
+                           Appointment
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-
-
-	 	<div id="page-content"> <!--page content-->
-
-
-
-            <div id="wp-main-content" class="clearfix main-page">
-
-                    <div class="custom-breadcrumb text-light text-left show-bg" style="background-image: url('https://fmeducation.co.uk/wp-content/uploads/2020/12/breadcrumb.jpg')">
-
-                        <div class="breadcrumb-overlay" style="background-color: rgba(31,34,48, 0.1)"></div>
-
-                        <div class="breadcrumb-main">
-
-                            <div class="container">
-
-                                <div class="breadcrumb-container-inner" style="padding-top:135px;padding-bottom:135px">
-
-                                    <h2 class="heading-title">Contact</h2>
-                                    <ol class="breadcrumb">
-                                        <li><a href="https://fmeducation.co.uk">Home</a>
-                                            </li> <li class="active">Contact</li></ol>
+           <!--Appointment Section Start -->
+        <section class="appointment-section section-padding fix">
+            <div class="container">
+                <div class="appointment-wrapper">
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="appointment-content">
+                                <div class="section-title mb-0">
+                                    <span class="sub-title-2">About Our Consultancy</span>
+                                    <h2 class="split-text-right split-text-in-right">
+                                        Want to meet us for your need?
+                                    </h2>
                                 </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="container my-5">
-                        <div class="card shadow-sm">
-                            <div class="card-header bg-primary text-white">
-                            <h3 class="mb-0 text-center">Apply (UK-EU Students)</h3>
+                                <h5>
+                                    Have any questions?
+                                </h5>
+                                <p>
+                                    24/7 customer support is always ready to answer all your questions
+                                </p>
                             </div>
-                            <div class="card-body">
-                            {{-- <form action="{{ route('applications.store') }}" method="post" enctype="multipart/form-data">
-                                @csrf --}}
-
-                        <form action="{{ route("frontend.applyNowstore") }}" method="post" enctype="multipart/form-data">
-                            @csrf
-
-                                <div class="mb-3 row">
-                                <label for="course_id" class="col-sm-3 col-form-label fw-bold text-end">Course Name</label>
-                                <div class="col-sm-6">
-                                    <select name="course_id" id="course_id" class="form-select @error('course_id') is-invalid @enderror" required>
-                                    <option value="">-- Select Course Name --</option>
-                                    @foreach($courses as $course)
-                                        <option value="{{ $course->id }}" {{ old('course_id') == $course->id ? 'selected' : '' }}>
-                                        {{ $course->title }}
-                                        </option>
-                                    @endforeach
-                                    </select>
-                                    @error('course_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="calendar">
+                                <div class="calendar-header">
+                                <h2 id="month-year"></h2>
+                                <div>
+                                    <button id="prev">&lt;</button>
+                                    <button id="next">&gt;</button>
                                 </div>
                                 </div>
-
-                                <div class="mb-3 row">
-                                <label for="first_name" class="col-sm-3 col-form-label fw-bold text-end">First Name</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" class="form-control @error('first_name') is-invalid @enderror" required>
-                                    @error('first_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                <div class="days">
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                                <div>Sun</div>
                                 </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                <label for="last_name" class="col-sm-3 col-form-label fw-bold text-end">Last Name</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" class="form-control @error('last_name') is-invalid @enderror" required>
-                                    @error('last_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                <label for="email" class="col-sm-3 col-form-label fw-bold text-end">Email</label>
-                                <div class="col-sm-6">
-                                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" required>
-                                    @error('email')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                <label for="phone" class="col-sm-3 col-form-label fw-bold text-end">Phone</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="phone" name="phone" value="{{ old('phone') }}" class="form-control @error('phone') is-invalid @enderror" required>
-                                    @error('phone')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                <label for="postal_address" class="col-sm-3 col-form-label fw-bold text-end">Postal Address</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="postal_address" name="postal_address" value="{{ old('postal_address') }}" class="form-control @error('postal_address') is-invalid @enderror" required>
-                                    @error('postal_address')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                <label for="visa_type_id" class="col-sm-3 col-form-label fw-bold text-end">Visa Status (Type)</label>
-                                <div class="col-sm-6">
-                                    <select name="visa_type_id" id="visa_type_id" class="form-select @error('visa_type_id') is-invalid @enderror" required>
-                                    <option value="">-- Select Visa Status --</option>
-                                    @foreach($visaTypes as $visaType)
-                                        <option value="{{ $visaType->id }}" {{ old('visa_type_id') == $visaType->id ? 'selected' : '' }}>
-                                        {{ $visaType->name }}
-                                        </option>
-                                    @endforeach
-                                    </select>
-                                    @error('visa_type_id')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="mb-3 row">
-                                <label for="referrer_name" class="col-sm-3 col-form-label fw-bold text-end">Referrer Name</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="referrer_name" name="referrer_name" value="{{ old('referrer_name') }}" class="form-control @error('referrer_name') is-invalid @enderror">
-                                    @error('referrer_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="mb-4 row">
-                                <label for="referrer_phone" class="col-sm-3 col-form-label fw-bold text-end">Referrer Phone</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="referrer_phone" name="referrer_phone" value="{{ old('referrer_phone') }}" class="form-control @error('referrer_phone') is-invalid @enderror">
-                                    @error('referrer_phone')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                </div>
-
-                                <div class="row">
-                                <div class="col-sm-9 offset-sm-3">
-                                    <button type="submit" class="btn btn-primary px-4">Submit</button>
-                                </div>
-                                </div>
-
-                        </form>
+                                <div class="dates" id="dates"></div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Contact Section Start -->
+        <div class="contact-section section-padding fix pt-0">
+            <div class="container">
+                <div class="contact-from-wrapper">
+                    <div class="row g-4">
+                        <div class="col-xl-12">
+                             <form action="{{ route("frontend.applyNowstore") }}" method="post" enctype="multipart/form-data" id="contact-form1" class="contact-form-items">
+                                @csrf
+                                <div class="row g-4">
+                                    <div class="col-lg-4">
+                                        <div class="form-clt">
+                                            <span>First Name</span>
+                                            <input type="text" name="first_name" id="name331" placeholder="Your first_name">
+                                        </div>
+                                    </div>
+
+                                     <div class="col-lg-4">
+                                        <div class="form-clt">
+                                            <span>Last Name</span>
+                                            <input type="text" name="last_name" id="name331" placeholder="Your last_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-clt">
+                                            <span>Your Email</span>
+                                            <input type="text" name="email" id="email11" placeholder="Your email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-clt">
+                                            <span>Your Phone</span>
+                                            <input type="text" name="phone" id="name22" placeholder="Phone Number">
+                                        </div>
+                                    </div>
+
+
+                                        <div class="col-lg-4">
+                                        <div class="form-clt">
+                                            <span>referrer_name</span>
+                                            <input type="text" name="referrer_name" id="name22" placeholder="Referrer Name">
+                                        </div>
+                                    </div>
+
+
+                                     <div class="col-lg-4">
+                                        <div class="form-clt">
+                                            <span>referrer_phone</span>
+                                            <input type="text" name="referrer_phone" id="name22" placeholder="Referrer Phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <span>Your Address</span>
+                                            <input type="text" name="postal_address" id="name24" placeholder="Your postal address">
+                                        </div>
+                                    </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <span>Course Name</span>
+                                            <select name="course_id" id="course_id" class="form-select @error('course_id') is-invalid @enderror" required>
+                                                <option value="">-- Select Course Name --</option>
+                                                @foreach($courses as $course)
+                                                    <option value="{{ $course->id }}" {{ old('course_id') == $course->id ? 'selected' : '' }}>
+                                                        {{ $course->title }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <span>Visa Type</span>
+                                            <select name="visa_type_id" id="visa_type_id" class="form-select @error('visa_type_id') is-invalid @enderror" required>
+                                                <option value="">-- Select Visa Type --</option>
+                                                @foreach($visaTypes as $visaType)
+                                                    <option value="{{ $visaType->id }}" {{ old('visa_type_id') == $visaType->id ? 'selected' : '' }}>
+                                                        {{ $visaType->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+
+                                      <div class="col-lg-6">
+                                        <div class="form-clt">
+                                             <button type="submit" class="theme-btn">
+                               Request Appointment
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                                        </div>
+                                    </div>
+
+                               </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
 @endsection
-
-@push('scripts')
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-// Bootstrap validation script
-(() => {
-  'use strict';
-  const forms = document.querySelectorAll('form');
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    }, false);
-  });
-})();
-</script>
-@endpush

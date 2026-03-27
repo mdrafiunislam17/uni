@@ -81,14 +81,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="designation"
                                class="col-sm-3 col-form-label text-right font-weight-bold">Designation *</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="designation" value="{{ old("designation") }}"
                                    name="designation">
                         </div>
-                    </div>
+                    </div> --}}
 
 
 
