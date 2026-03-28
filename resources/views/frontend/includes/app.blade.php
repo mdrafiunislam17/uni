@@ -8,12 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Gramentheme">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="shortcut icon" href="{{ asset("uploads/" . $settings["SETTING_SITE_FAVICON"]) }}" type="image/x-icon">
+
         <title>urm || @yield('title')</title>
         <meta name="theme-color" content="#3FA9F5">
         <!-- ======== Page title ============ -->
 
         <!--<< Favcion >>-->
-        <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+        {{-- <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}"> --}}
         <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <!--<< All Min Css >>-->

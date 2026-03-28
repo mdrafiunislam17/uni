@@ -31,6 +31,9 @@ class HomeController extends Controller
       public function index ()
         {
             $settings = Setting::query()->pluck("value", "setting_name")->toArray();
-            return view('admin.index', compact('settings'));
+            $totalCourses = \App\Models\Course::count();
+            $totalTeamsMember = \App\Models\Team::count();
+            $totalApplications = \App\Models\Application::count();
+            return view('admin.index', compact('settings', 'totalCourses', 'totalTeamsMember', 'totalApplications'));
         }
 }

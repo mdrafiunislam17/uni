@@ -18,13 +18,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Conveners
+                                    Total Courses
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-{{--                                    {{ number_format($totalConvener) }}--}} 100
-                                    <small class="text-danger">Inactive:
-{{--                                        {{ number_format($totalConvenerInactive) }}--}} 20
-                                    </small>
+                                   {{ number_format($totalCourses) }}
+
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -41,13 +39,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Total Committee Members
+                                    Total Teams Members
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-{{--                                    {{ number_format($totalCommitteeMember) }}--}} 80
-                                    <small class="text-danger">Inactive:
-{{--                                        {{ number_format($totalCommitteeMemberInactive) }}--}} 10
-                                    </small>
+                                   {{ number_format($totalTeamsMember) }}
+
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -64,15 +60,13 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                    Total Advisory Councils
+                                    Total Applications
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-{{--                                            {{ number_format($totalAdvisoryCouncil) }}--}} 100
-                                            <small class="text-danger">Inactive:
-{{--                                                {{ number_format($totalAdvisoryCouncilInactive) }}--}} 15
-                                            </small>
+                                           {{ number_format($totalApplications) }}
+
                                         </div>
                                     </div>
                                 </div>
@@ -85,33 +79,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-dark shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                                    Total Members
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-{{--                                            {{ number_format($totalMember) }}--}} 80
-                                            <small class="text-danger">Inactive:
-{{--                                                {{ number_format($totalMemberInactive) }}--}} 20
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <div class="row">
 {{--            <div class="col-lg-6 mb-4">--}}
